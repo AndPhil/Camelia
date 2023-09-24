@@ -1,0 +1,215 @@
+/* --- PARAMETROS GENERALES DEL SITIO --- */
+
+    :root {
+
+        /* PALETA DE COLORES */
+        --color_principal: #F2D8E9;
+        --color_secundario: #F2F2F2;
+        --color_acento: #F2D8A7;
+
+        --color_verdeClaro: #A4D8B2;
+        --color_verdeClaroTr: #a4d8b26c;
+        --color_acento2: #D98236;
+        --color_acento2Tr: #d9823652;
+
+
+        /* FUENTES */ 
+        --fuente_principal: 'Amatic SC', cursive;
+        --fuente_secundaria: 'Caveat', cursive;
+        --fuente_desc_cursiva: 'Dancing Script', cursive;
+        --fuente_desc_imprenta: 'Indie Flower', cursive;
+    }
+
+    html {
+        height: 100%;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100%;
+        background-image: linear-gradient(to right bottom, #f2d8e9, #f0dded, #efe2ef, #eee7f1, #efecf2, #f1ebf3, #f3eaf3, #f6e9f2, #ffe1e7, #ffdad4, #ffd7bc, #f2d8a7);
+    }
+
+    main {
+        max-width: 1280px;
+        margin: auto;
+        height: 100vh;
+        
+        background-image: url(/Proyectos/Camelia/img/fondo.png);
+        border: 1px solid grey;
+        box-shadow: 2px 2px 25px grey;
+    }
+
+
+/* --- DISPLAY DE PÁGINA --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: 200px auto auto auto auto 35px ;
+    gap: 1px;
+    grid-template-areas:
+    'header     header  header  header  header  header  header  header  header  header  header  header'
+    'navbar     navbar  navbar  navbar  navbar  navbar  navbar  navbar  navbar  navbar  navbar  navbar'
+    'aside      aside   aside    section section section section section section section section section'
+    'aside      aside   aside    section section section section section section section section section'
+    'aside      aside   aside    section section section section section section section section section'
+    'footer     footer  footer  footer  footer  footer  footer  footer  footer  footer  footer  footer'
+    ;
+}
+
+.grid-item {
+    /*border: 1px dashed black;       Usar bordes para organizar grilla, luego comnetarlos.*/
+}
+
+
+/*  ----- HEADER ----- */
+    .header {
+        grid-area: header;
+        display: block;
+    }
+
+   .header_logo {
+        width: 100%;
+        height: 100%;
+        filter: contrast(120%);
+    }
+
+    .navbar {
+        grid-area: navbar;
+        max-height: 80px;
+        
+        background-color: rgba(0, 0, 0, 0.11);
+        box-shadow: 1px 1px 5px grey;
+    }
+
+    .navbar ul {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+    }
+
+    .navbar ul li {
+        list-style: none;
+        transition: 0.5s;
+    }
+
+    .navbar ul img {
+        height: 2em;
+        padding-right: 10px;
+    }
+
+    .navbar ul li a {
+        text-decoration: none;
+        font-family: var(--fuente_principal);
+        font-size: 2.5em;
+        font-weight: 800;
+        color: black;
+        text-shadow: 10px 10px 25px grey;
+    }
+
+    .navbar li:hover, .navbar a:hover {
+        transform: scale(110%);
+        text-shadow: 2px 2px 5px var(--color_acento2);
+    }
+
+
+/* ----- ASIDE ----- */
+    .aside {
+        grid-area: aside;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+
+        background-color: var(--color_verdeClaroTr);        
+        box-shadow: 1px 1px 15px grey;
+    }
+
+    .aside h2 {
+        font-family: var(--fuente_desc_imprenta);
+        font-weight: bold;
+        font-size: 2em;
+        text-shadow: 1px 1px 5px var(--color_acento2);
+    }
+
+    .aside p {
+        font-family: var(--fuente_desc_imprenta);
+        font-weight: bold;
+        font-size: 1em;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 5px white;
+    }
+
+    .aside img {
+        padding: 0;
+        margin: 15px;
+    }
+
+
+/* ----- SECTION ----- */
+    .section {
+        grid-area: section;
+        display: flex;
+    }
+
+    .section div {
+        margin: 15px;
+        padding: 25px;
+
+        display: inline-block;
+
+        border-radius: 5%;
+        background-color: var(--color_acento2Tr);
+        box-shadow: 0 0 5px black;
+
+        font-family: var(--fuente_desc_imprenta);
+        font-size: 1.3em;
+        text-shadow: 0 0 15px var(--color_verdeClaro);
+        text-align: center;
+        letter-spacing: 3px;
+
+        filter: grayscale(80%);
+        transition: 0.5s;
+    }
+
+    .section img {
+        width: 95%;
+        border-radius: 50%;
+        box-shadow: 5px 5px 15px black;
+    }
+
+    .section div:hover {
+        transform: scale(105%);
+        filter: grayscale(0%);
+    }
+
+
+/* ----- FOOTER ----- */
+    .footer {
+        grid-area: footer;
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+
+        background-color: rgba(0, 0, 0, 0.11);
+        box-shadow: 1px 1px 5px grey;
+
+        font-family: var(--fuente_principal);
+        font-size: 1.6em;
+    }
+
+    .footer div {
+        display: flex; 
+        align-items: center;
+    }
+
+    .footer div img {
+        height: 30px;
+        padding: 5px;
+
+        transition: 0.5s;
+    }
+
+    .footer img:hover {
+        transform: scale(130%);
+    }
